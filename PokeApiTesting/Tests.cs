@@ -41,7 +41,7 @@ namespace Tests
         [Test,TestCaseSource("GetAllResources"),Parallelizable]
         public void Health_Check(string resourceName, string resourceUrl)
         {
-            Assert.Pass();
+            Assert.Pass("Test");
         }
     }
 }
