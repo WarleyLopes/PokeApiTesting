@@ -30,7 +30,7 @@ bld/
 #wwwroot/
 
 #package files
-packages/
+/packages
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
