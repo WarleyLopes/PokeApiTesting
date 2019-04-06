@@ -4,6 +4,7 @@ using NUnit.Framework;
 using PokeApiTesting.Utilities;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 
 namespace PokeApiTesting.Tests
 {
@@ -88,10 +89,10 @@ namespace PokeApiTesting.Tests
                     ResponseSummarization.GetInfo(locationAreaResponse));
 
                 //Asserts if the area indeed has chances of encountering Pikachu
-                //Assert.That(locationAreaResponse.Content.Contains("pikachu") &&
-                //    JToken.Parse(locationAreaResponse.Content).SelectTokens("$..pokemon.name").ToString().Contains("pikachu"),
-                //    "Expected to find Pikachu as one of the Pokemons encountered in this location area but just encountered: \n"+
-                //    JsonConvert.SerializeObject(JToken.Parse(locationAreaResponse.Content).SelectTokens("$..pokemon.name"), Formatting.Indented));
+                Assert.That(locationAreaResponse.Content.Contains("pikachu") &&
+                    new List<JToken>(JToken.Parse(locationAreaResponse.Content).SelectTokens("$..pokemon.name")).Contains("pikachu"),
+                    "Expected to find Pikachu as one of the Pokemons encountered in this location area but just encountered: \n" +
+                    JsonConvert.SerializeObject(JToken.Parse(locationAreaResponse.Content).SelectTokens("$..pokemon.name"), Formatting.Indented));
             }
         }
     }
