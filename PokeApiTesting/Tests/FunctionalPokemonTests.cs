@@ -36,7 +36,7 @@ namespace PokeApiTesting.Tests
             var contentJToken = JToken.Parse(response.Content);
 
             //Asserts the returned pokemon is indeed Pikachu, if not returns which one it returned
-            Assert.That(contentJToken["name"].ToString().Equals("Pikachu"),
+            Assert.That(contentJToken["name"].ToString().Equals("pikachu"),
                 "Expected returned pokemon should have been Pikachu but was: " +
                 contentJToken["name"].ToString());
 
